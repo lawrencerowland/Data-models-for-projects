@@ -1,0 +1,4 @@
+LOAD CSV WITH HEADERS FROM "https://docs.google.com/spreadsheets/d/1A2q2F8W2vlDEYIwapbhWL7kHNC6-IB_U/gviz/tq?tqx=out:csv&sheet=Sheet1&access_token=ya29.Il-xBzBkvOP3EE8IyFrQK99Q1riufdkfUn1Vyp2REUFCiMaPTjKddJpR00aizsRhY4gLX6nYqOhj_YZD_0WmsVMlG2kAWd0AhyKTGHqX4-WSHuP3K_RhCMR_oF51FdSGpQ" AS row
+MERGE (src:Group {name: row.From})
+MERGE (tgt:Group {name: row.To})
+MERGE (src)-[r:INTERACTS]->(tgt)
